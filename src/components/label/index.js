@@ -78,10 +78,16 @@ export default class Label extends PureComponent {
           outputRange: [errorColor, baseColor, tintColor],
         });
 
+      let opacity = disabled ? 0.4 : restricted ? 0.4 : focusAnimation.interpolate({
+        inputRange: [-1, 0, 1],
+        outputRange: [1, 0.4, 1],
+      });
+
     let textStyle = {
       lineHeight: fontSize,
       fontSize,
       color,
+      opacity
     };
 
     let { x0, y0, x1, y1 } = offset;
